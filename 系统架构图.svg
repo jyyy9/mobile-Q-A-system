@@ -1,0 +1,64 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" font-family="Microsoft YaHei, SimHei, sans-serif">
+  <defs>
+    <linearGradient id="lt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8f4fd"/><stop offset="100%" stop-color="#d0ebf9"/></linearGradient>
+    <linearGradient id="lm" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0fdf4"/><stop offset="100%" stop-color="#dcfce7"/></linearGradient>
+    <linearGradient id="lb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fefce8"/><stop offset="100%" stop-color="#fef9c3"/></linearGradient>
+    <linearGradient id="bx" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+    <filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/></filter>
+    <marker id="ab" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#3b82f6"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#94a3b8"/></marker>
+  </defs>
+  <text x="500" y="32" text-anchor="middle" font-size="20" font-weight="bold" fill="#1e293b">系统架构图</text>
+  <rect x="40" y="50" width="920" height="180" rx="10" fill="url(#lt)" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="60" y="78" font-size="14" font-weight="bold" fill="#1d4ed8">交互层 (Interaction Layer)</text>
+  <rect x="70" y="95" width="240" height="115" rx="8" fill="white" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="190" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">售后咨询模块</text>
+  <text x="190" y="142" text-anchor="middle" font-size="10" fill="#64748b">聊天界面 → 售后客服工作区</text>
+  <text x="190" y="162" text-anchor="middle" font-size="10" fill="#64748b">退换货 / 保修 / 以旧换新 / 投诉</text>
+  <text x="190" y="198" text-anchor="middle" font-size="10" fill="#3b82f6">POST /api/after-sales/chat</text>
+  <rect x="380" y="95" width="240" height="115" rx="8" fill="white" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="500" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">商品对比模块</text>
+  <text x="500" y="142" text-anchor="middle" font-size="10" fill="#64748b">左右对比框 → 参数对比表格</text>
+  <text x="500" y="162" text-anchor="middle" font-size="10" fill="#64748b">差异行自动高亮</text>
+  <text x="500" y="198" text-anchor="middle" font-size="10" fill="#3b82f6">POST /api/compare/phones</text>
+  <rect x="690" y="95" width="240" height="115" rx="8" fill="white" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="810" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e293b">智能问答模块</text>
+  <text x="810" y="142" text-anchor="middle" font-size="10" fill="#64748b">聊天界面 → 通用问答工作区</text>
+  <text x="810" y="162" text-anchor="middle" font-size="10" fill="#64748b">商品 / 优惠 / 配送 / FAQ</text>
+  <text x="810" y="198" text-anchor="middle" font-size="10" fill="#3b82f6">POST /api/general-qa/chat</text>
+  <line x1="190" y1="210" x2="190" y2="255" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <line x1="500" y1="210" x2="500" y2="255" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <line x1="810" y1="210" x2="810" y2="255" stroke="#3b82f6" stroke-width="2" marker-end="url(#ab)"/>
+  <rect x="250" y="255" width="500" height="44" rx="8" fill="url(#bx)" filter="url(#sh)"/>
+  <text x="500" y="283" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Node.js + Express 后端中间层（路由分发 / API调用 / 响应格式化）</text>
+  <line x1="500" y1="299" x2="500" y2="355" stroke="#94a3b8" stroke-width="2" marker-end="url(#ag)"/>
+  <text x="515" y="330" font-size="11" fill="#64748b">HTTP API 调用</text>
+  <rect x="40" y="360" width="920" height="180" rx="10" fill="url(#lm)" stroke="#86efac" stroke-width="1.5"/>
+  <text x="60" y="388" font-size="14" font-weight="bold" fill="#15803d">服务层 (Service Layer)</text>
+  <rect x="70" y="400" width="520" height="125" rx="8" fill="white" stroke="#22c55e" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="330" y="425" text-anchor="middle" font-size="13" font-weight="bold" fill="#15803d">AnythingLLM RAG 引擎</text>
+  <text x="330" y="448" text-anchor="middle" font-size="10" fill="#475569">工作区A：售后客服（售后规则、配送规则、投诉纠纷、以旧换新）</text>
+  <text x="330" y="465" text-anchor="middle" font-size="10" fill="#475569">工作区B：商品信息（八大品牌二十余款机型参数、配件信息）</text>
+  <text x="330" y="482" text-anchor="middle" font-size="10" fill="#475569">工作区C：通用问答（FAQ、优惠活动、会员体系、配送规则、隐私安全）</text>
+  <text x="330" y="502" text-anchor="middle" font-size="10" fill="#22c55e">System Prompt + RAG 检索增强生成</text>
+  <rect x="620" y="400" width="310" height="125" rx="8" fill="white" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="775" y="425" text-anchor="middle" font-size="13" font-weight="bold" fill="#b45309">Ollama 本地推理引擎</text>
+  <text x="775" y="450" text-anchor="middle" font-size="10" fill="#475569">qwen2:7b（4.4GB）文本生成</text>
+  <text x="775" y="470" text-anchor="middle" font-size="10" fill="#475569">nomic-embed-text（274MB）向量化</text>
+  <line x1="590" y1="462" x2="620" y2="462" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#ag)"/>
+  <text x="605" y="455" text-anchor="middle" font-size="9" fill="#94a3b8">调用</text>
+  <line x1="330" y1="525" x2="330" y2="565" stroke="#94a3b8" stroke-width="2" marker-end="url(#ag)"/>
+  <rect x="40" y="570" width="920" height="110" rx="10" fill="url(#lb)" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="60" y="598" font-size="14" font-weight="bold" fill="#92400e">数据层 (Data Layer) — 私有知识库</text>
+  <rect x="70" y="610" width="860" height="55" rx="8" fill="white" stroke="#f59e0b" stroke-width="1" filter="url(#sh)"/>
+  <text x="150" y="635" text-anchor="middle" font-size="10" fill="#475569">售后规则</text>
+  <text x="240" y="635" text-anchor="middle" font-size="10" fill="#475569">商品信息</text>
+  <text x="330" y="635" text-anchor="middle" font-size="10" fill="#475569">常见FAQ</text>
+  <text x="420" y="635" text-anchor="middle" font-size="10" fill="#475569">配送规则</text>
+  <text x="510" y="635" text-anchor="middle" font-size="10" fill="#475569">优惠活动</text>
+  <text x="600" y="635" text-anchor="middle" font-size="10" fill="#475569">会员体系</text>
+  <text x="690" y="635" text-anchor="middle" font-size="10" fill="#475569">投诉纠纷</text>
+  <text x="780" y="635" text-anchor="middle" font-size="10" fill="#475569">手机配件</text>
+  <text x="870" y="635" text-anchor="middle" font-size="10" fill="#475569">隐私安全</text>
+  <text x="500" y="655" text-anchor="middle" font-size="10" fill="#92400e">11份MD/TXT文档 · 十大知识领域</text>
+</svg>

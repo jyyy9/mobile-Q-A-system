@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 电商助手</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 主页 -->
+  <div id="home-view" class="view">
+    <h1 class="site-title">AI 电商助手</h1>
+    <p class="site-subtitle">智能购物体验，一键触达</p>
+    <div class="card-container">
+      <div class="card" onclick="showView('after-sales')">
+        <div class="card-avatar">🧑‍💼</div>
+        <div class="card-title">售后客服</div>
+        <div class="card-desc">退换货 / 保修 / 以旧换新</div>
+      </div>
+      <div class="card" onclick="showView('compare')">
+        <div class="card-avatar">📊</div>
+        <div class="card-title">商品对比</div>
+        <div class="card-desc">型号参数一网打尽</div>
+      </div>
+      <div class="card" onclick="showView('qa')">
+        <div class="card-avatar">🤖</div>
+        <div class="card-title">智能问答</div>
+        <div class="card-desc">商品 / 优惠 / 配送 随便问</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 售后咨询 -->
+  <div id="after-sales-view" class="view" style="display:none">
+    <div class="chat-container">
+      <div class="chat-header">
+        <button class="back-btn" onclick="showView('home')">← 返回</button>
+        <span>售后客服</span>
+      </div>
+      <div id="after-sales-messages" class="messages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="after-sales-input" placeholder="输入售后问题..." onkeydown="if(event.key==='Enter') sendAfterSales()">
+        <button onclick="sendAfterSales()">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 商品对比 -->
+  <div id="compare-view" class="view" style="display:none">
+    <div class="page-container">
+      <div class="page-header">
+        <button class="back-btn" onclick="showView('home')">← 返回</button>
+        <span>商品对比</span>
+      </div>
+      <div class="compare-boxes">
+        <div class="compare-box">
+          <input type="text" id="phone1" placeholder="输入手机型号 1" list="phone-list">
+          <div id="phone1-result" class="compare-result"></div>
+        </div>
+        <div class="compare-box">
+          <input type="text" id="phone2" placeholder="输入手机型号 2" list="phone-list">
+          <div id="phone2-result" class="compare-result"></div>
+        </div>
+      </div>
+            <datalist id="phone-list">
+        <option value="iPhone 16 Pro Max">
+        <option value="iPhone 16 Pro">
+        <option value="iPhone 16">
+        <option value="iPhone SE (第4代)">
+        <option value="Apple iPhone 15">
+        <option value="Galaxy S25 Ultra">
+        <option value="Galaxy S25+">
+        <option value="Galaxy A55">
+        <option value="小米15 Ultra">
+        <option value="小米15">
+        <option value="Redmi K80 Pro">
+        <option value="红米 Note 14 Pro+">
+        <option value="华为 Mate 70 Pro+">
+        <option value="华为 Mate 70 Pro">
+        <option value="华为 Pura 70 Ultra">
+        <option value="华为 nova 13 Pro">
+        <option value="Find X8 Pro">
+        <option value="Reno13 Pro">
+        <option value="X200 Pro">
+        <option value="X200">
+        <option value="iQOO 15">
+        <option value="OnePlus 13">
+        <option value="Magic7 Pro">
+        <option value="Magic V4 (折叠屏)">
+      </datalist>
+      <button id="compare-btn" onclick="startCompare()">开始对比</button>
+      <div id="compare-output" class="compare-output"></div>
+    </div>
+  </div>
+
+  <!-- 智能问答 -->
+  <div id="qa-view" class="view" style="display:none">
+    <div class="chat-container">
+      <div class="chat-header">
+        <button class="back-btn" onclick="showView('home')">← 返回</button>
+        <span>智能问答</span>
+      </div>
+      <div id="qa-messages" class="messages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="qa-input" placeholder="输入你的问题..." onkeydown="if(event.key==='Enter') sendQA()">
+        <button onclick="sendQA()">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/after-sales.js"></script>
+  <script src="js/compare.js"></script>
+  <script src="js/qa.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
